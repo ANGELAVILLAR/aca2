@@ -1,7 +1,19 @@
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PacienteServicio {
+
+    private List<DatoPaciente> datoPacienteList;
+
+    public PacienteServicio() {
+        this.datoPacienteList = new ArrayList<>();
+    }
+
+    public void mostrarPaciente() {
+        datoPacienteList.stream().forEach(DatoPaciente::consultarDatoPaciente);
+    }
 
     public String registrarPaciente() {
 
@@ -52,6 +64,34 @@ public class PacienteServicio {
         String profesion = scan.next();
         datoPaciente.profesion = profesion;
 
+        datoPacienteList.add(datoPaciente);
+        return "Paciente registrado";
     }
-            public static void main(String[] args) {
+
+    public static void main(String[] args) {
+        PacienteServicio pacienteServicio = new PacienteServicio();
+        Scanner scanner = new Scanner(System.in);
+        Boolean estaTerminado = false;
+        while (!estaTerminado){
+            System.out.println("Seleccione 1 para registrar el usuario, 2. para mostrar los usuario registrados. Cualquier otro valor para terminar");
+            int opcion = scanner.nextInt();
+
+            switch (opcion){
+                case 1:
+                    pacienteServicio.registrarPaciente();
+                    break;
+                case 2:
+                    pacienteServicio.mostrarPaciente();
+                    break;
+
+                default:
+                    estaTerminado = true;
+                    System.out.println("Programa terminado.");
+                    break;
+            }
+
+        }
+
+
+    }
 }

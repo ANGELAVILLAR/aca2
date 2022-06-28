@@ -17,23 +17,14 @@ public class DatoPaciente {
     //Comportamientos - Metodos
 
     public void consultarDatoPaciente() {
-        consultarDatoPaciente();
-
-        System.out.println("\tPaciente Genero = " + genero);
-        System.out.println("\tFechaNacimiento = " + fechaNacimiento);
-        System.out.println("\tEps = " + eps);
-        System.out.println("\tArl = " + arl);
-        System.out.println("\tProfesion = " + profesion);
-        System.out.println("\tDireccion = " + direccion);
-        System.out.println("\tCelular = " + celular);
-        System.out.println("\tCiudad = " + ciudad);
-        System.out.println("\tDepartamento = " + departamento);
-        }
+        System.out.println(mostrarInfo());
+    }
 
 
-
-    private String construirDatosPaciente() {
-        return new StringBuilder().append("Los datos del paciente son: ")
+    private String mostrarInfo() {
+        return new StringBuilder()
+                .append("\n---- Inicio data paciente ---- ")
+                .append("Los datos del paciente son: ")
                 .append("\nNombre: ").append(nombre)
                 .append("\nApellido: ").append(apellido)
                 .append("\nCédula: ").append(cedula)
@@ -45,9 +36,9 @@ public class DatoPaciente {
                 .append("\nCelular: ").append(celular)
                 .append("\nEps del paciente: ").append(eps)
                 .append("\nArl del paciente: ").append(arl)
-                .append("\nProfesión del paciente: ").append(profesion).toString();
+                .append("\nProfesión del paciente: ").append(profesion)
+                .append("\n---- fin data paciente ---- ").toString();
     }
-
 
 
 }
